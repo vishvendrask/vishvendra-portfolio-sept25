@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, Sun, Moon } from 'lucide-react';
-import { useTheme } from '@/hooks/useTheme';
+import { useTheme, useThemeToggle } from '@/providers/ThemeProvider';
 import { cn } from '@/lib/utils';
 
 const navItems = [
@@ -22,7 +22,8 @@ export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
-  const { theme, toggleTheme, mounted } = useTheme();
+  const { theme } = useTheme();
+  const toggleTheme = useThemeToggle();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -94,10 +95,9 @@ export default function Navigation() {
           {/* Theme Toggle & Mobile Menu Button */}
           <div className="flex items-center space-x-4">
             {/* Theme Toggle */}
-            {mounted && (
-              <motion.button
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
+            <motion.button
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
                 onClick={toggleTheme}
                 className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
                 whileHover={{ scale: 1.05 }}
@@ -109,7 +109,6 @@ export default function Navigation() {
                   <Moon className="h-5 w-5" />
                 )}
               </motion.button>
-            )}
 
             {/* Mobile menu button */}
             <div className="md:hidden">

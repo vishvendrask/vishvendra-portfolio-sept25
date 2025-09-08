@@ -2,7 +2,8 @@ import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
-import GlobalBackground from '@/components/GlobalBackground'
+import AnimatedBackground from '@/components/AnimatedBackground'
+import { ThemeProvider } from '@/providers/ThemeProvider'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -85,13 +86,29 @@ export default function RootLayout({
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#3b82f6" />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              try {
+                var theme = localStorage.getItem('theme') || 
+                           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                if (theme === 'dark') {
+                  document.documentElement.classList.add('dark');
+                  document.body.classList.add('dark');
+                }
+              } catch (e) {}
+            })();
+          `
+        }} />
       </head>
-      <body className={`${inter.className} antialiased bg-transparent text-gray-900 dark:text-white transition-colors duration-500`}>
-        <GlobalBackground variant="page" intensity="medium" />
-        <Navigation />
-        <main className="relative z-10 pt-16">
-          {children}
-        </main>
+      <body className={`${inter.className} antialiased text-gray-900 dark:text-white transition-colors duration-300`}>
+        <ThemeProvider defaultTheme="light" storageKey="theme">
+          <AnimatedBackground variant="hero" intensity="high" />
+          <Navigation />
+          <main className="relative z-10 pt-16">
+            {children}
+          </main>
+        </ThemeProvider>
       </body>
     </html>
   )

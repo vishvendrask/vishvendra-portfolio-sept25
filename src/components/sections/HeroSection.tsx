@@ -142,15 +142,11 @@ export default function HeroSection() {
                   transition: { duration: 0.3 }
                 }}
               >
-                <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900">
-                  <Image
-                    src="/images/profile.jpg"
-                    alt={personalInfo.name}
-                    width={400}
-                    height={400}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
-                    priority
-                  />
+                <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900 flex items-center justify-center">
+                  {/* Professional placeholder with initials */}
+                  <div className="text-6xl lg:text-8xl font-bold text-blue-600 dark:text-blue-400 transition-colors duration-500">
+                    {personalInfo.name.split(' ').map(n => n[0]).join('')}
+                  </div>
                 </div>
               </motion.div>
 

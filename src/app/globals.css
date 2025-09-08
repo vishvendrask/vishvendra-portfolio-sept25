@@ -133,3 +133,23 @@ body {
 .dark .text-glow {
   text-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
 }
+
+/* Hero background */
+body {
+  background: linear-gradient(to bottom right, 
+    rgb(248 250 252), 
+    rgb(199 210 254), 
+    rgb(221 214 254)
+  );
+  transition: background 0.2s ease !important;
+}
+
+.dark body,
+html.dark body,
+[data-theme="dark"] body {
+  background: linear-gradient(to bottom right, 
+    rgb(15 23 42), 
+    rgba(30, 58, 138, 0.6), 
+    rgba(88, 28, 135, 0.4)
+  ) !important;
+}
