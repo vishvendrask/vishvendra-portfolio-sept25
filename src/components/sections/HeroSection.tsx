@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ChevronDown, Download, Mail, Github, Linkedin } from 'lucide-react';
-import ParallaxBackground from '@/components/ParallaxBackground';
+import ParallaxHeroBackground from '@/components/ParallaxHeroBackground';
 import { personalInfo, socialLinks } from '@/data';
 import Image from 'next/image';
 
@@ -21,7 +21,8 @@ export default function HeroSection() {
 
   return (
     <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      <ParallaxBackground speed={0.5} className="min-h-screen">
+      <ParallaxHeroBackground />
+      <div className="relative z-10 min-h-screen flex items-center justify-center w-full">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Text Content */}
@@ -29,7 +30,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-center lg:text-left"
+              className="text-center lg:text-left relative z-10"
             >
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -125,7 +126,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative"
+              className="relative z-10"
             >
               <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
                 {/* Floating background elements */}
@@ -217,7 +218,7 @@ export default function HeroSection() {
             </Link>
           </motion.div>
         </motion.div>
-      </ParallaxBackground>
+      </div>
     </section>
   );
 }
