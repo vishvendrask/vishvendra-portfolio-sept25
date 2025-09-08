@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ContactSection from '@/components/sections/ContactSection';
+import PageTransition from '@/components/PageTransition';
 
 export const metadata: Metadata = {
   title: 'Contact - Vishvendra Singh Khangarot',
@@ -8,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function Contact() {
   return (
-    <div className="pt-16">
-      <ContactSection />
-    </div>
+    <PageTransition>
+      <div className="relative z-10">
+        <ContactSection />
+      </div>
+    </PageTransition>
   );
 }

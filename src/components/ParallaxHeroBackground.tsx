@@ -1,74 +1,58 @@
 'use client';
 
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTheme } from '@/hooks/useTheme';
 
 export default function ParallaxHeroBackground() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isClient, setIsClient] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
   const { theme } = useTheme();
   const { scrollY } = useScroll();
 
-  // Transform values for different layers based on scroll
-  const backgroundY = useTransform(scrollY, [0, 500], [0, 150]);
-  const starsY = useTransform(scrollY, [0, 500], [0, 100]);
-  const nebulaY = useTransform(scrollY, [0, 500], [0, 200]);
-  const particlesY = useTransform(scrollY, [0, 500], [0, 300]);
-  const gridY = useTransform(scrollY, [0, 500], [0, 400]);
-  const shapesY = useTransform(scrollY, [0, 500], [0, 500]);
+  // Transform values for different layers based on scroll only
+  const backgroundY = useTransform(scrollY, [0, 800], [0, 200]);
+  const starsY = useTransform(scrollY, [0, 800], [0, 150]);
+  const nebulaY = useTransform(scrollY, [0, 800], [0, 250]);
+  const particlesY = useTransform(scrollY, [0, 800], [0, 350]);
+  const gridY = useTransform(scrollY, [0, 800], [0, 450]);
+  const shapesY = useTransform(scrollY, [0, 800], [0, 600]);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      if (containerRef.current) {
-        const rect = containerRef.current.getBoundingClientRect();
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        setMousePosition({
-          x: (e.clientX - rect.left - centerX) / centerX,
-          y: (e.clientY - rect.top - centerY) / centerY,
-        });
-      }
-    };
-
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    return () => window.removeEventListener('mousemove', handleMouseMove);
-  }, []);
-
   if (!isClient) {
     return (
-      <div className={`absolute inset-0 ${
+      <div className={`absolute inset-0 transition-all duration-700 ${
         theme === 'dark' 
-          ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900' 
-          : 'bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-100'
+          ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900' 
+          : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'
       }`} />
     );
   }
 
   return (
-    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
+    <div className="absolute inset-0 overflow-hidden">
       {/* Base Background Layer */}
       <motion.div
-        className={`absolute inset-0 ${
+        className={`absolute inset-0 transition-all duration-700 ${
           theme === 'dark' 
-            ? 'bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900' 
-            : 'bg-gradient-to-br from-blue-50 via-indigo-100 to-purple-100'
+            ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900' 
+            : 'bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50'
         }`}
         style={{ y: backgroundY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
       />
 
       {/* Background: Stars and Nebula */}
       <motion.div
         className="absolute inset-0"
-        style={{ 
-          y: starsY,
-          x: mousePosition.x * 5,
-        }}
+        style={{ y: starsY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.2 }}
       >
         <StarsLayer theme={theme} />
       </motion.div>
@@ -76,10 +60,10 @@ export default function ParallaxHeroBackground() {
       {/* Mid-background: Faint Nebula Effect */}
       <motion.div
         className="absolute inset-0"
-        style={{ 
-          y: nebulaY,
-          x: mousePosition.x * 10,
-        }}
+        style={{ y: nebulaY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.4 }}
       >
         <NebulaLayer theme={theme} />
       </motion.div>
@@ -87,10 +71,10 @@ export default function ParallaxHeroBackground() {
       {/* Mid-background: Blurred Particles & Light Streaks */}
       <motion.div
         className="absolute inset-0"
-        style={{ 
-          y: particlesY,
-          x: mousePosition.x * 15,
-        }}
+        style={{ y: particlesY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.5, delay: 0.6 }}
       >
         <ParticlesLayer theme={theme} />
       </motion.div>
@@ -98,10 +82,10 @@ export default function ParallaxHeroBackground() {
       {/* Middle: Tech Skyline & Abstract Grid */}
       <motion.div
         className="absolute inset-0"
-        style={{ 
-          y: gridY,
-          x: mousePosition.x * 20,
-        }}
+        style={{ y: gridY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 0.8 }}
       >
         <TechGridLayer theme={theme} />
       </motion.div>
@@ -109,10 +93,10 @@ export default function ParallaxHeroBackground() {
       {/* Mid-foreground: Curved Waves & Gradient Mesh */}
       <motion.div
         className="absolute inset-0"
-        style={{ 
-          y: shapesY,
-          x: mousePosition.x * 25,
-        }}
+        style={{ y: shapesY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1.8, delay: 1 }}
       >
         <WavesLayer theme={theme} />
       </motion.div>
@@ -120,10 +104,10 @@ export default function ParallaxHeroBackground() {
       {/* Foreground: Abstract Glowing Geometric Shapes */}
       <motion.div
         className="absolute inset-0"
-        style={{ 
-          y: shapesY,
-          x: mousePosition.x * 30,
-        }}
+        style={{ y: shapesY }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 2, delay: 1.2 }}
       >
         <FloatingShapesLayer theme={theme} />
       </motion.div>

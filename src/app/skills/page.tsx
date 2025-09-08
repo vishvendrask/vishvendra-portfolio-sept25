@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import SkillsSection from '@/components/sections/SkillsSection';
+import PageTransition from '@/components/PageTransition';
 
 export const metadata: Metadata = {
   title: 'Skills - Vishvendra Singh Khangarot',
@@ -8,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function Skills() {
   return (
-    <div className="pt-16">
-      <SkillsSection />
-    </div>
+    <PageTransition>
+      <div className="relative z-10">
+        <SkillsSection />
+      </div>
+    </PageTransition>
   );
 }

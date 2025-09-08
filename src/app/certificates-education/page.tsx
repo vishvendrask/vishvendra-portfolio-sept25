@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import EducationSection from '@/components/sections/EducationSection';
 import CertificatesSection from '@/components/sections/CertificatesSection';
+import PageTransition from '@/components/PageTransition';
 
 export const metadata: Metadata = {
   title: 'Education & Certifications - Vishvendra Singh Khangarot',
@@ -9,9 +10,11 @@ export const metadata: Metadata = {
 
 export default function CertificatesEducation() {
   return (
-    <div className="pt-16">
-      <EducationSection />
-      <CertificatesSection />
-    </div>
+    <PageTransition>
+      <div className="relative z-10">
+        <EducationSection />
+        <CertificatesSection />
+      </div>
+    </PageTransition>
   );
 }

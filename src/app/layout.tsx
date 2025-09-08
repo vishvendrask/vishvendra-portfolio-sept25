@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
+import GlobalBackground from '@/components/GlobalBackground'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -85,9 +86,10 @@ export default function RootLayout({
         <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#3b82f6" />
       </head>
-      <body className={`${inter.className} antialiased bg-white dark:bg-gray-900 text-gray-900 dark:text-white transition-colors duration-300`}>
+      <body className={`${inter.className} antialiased bg-transparent text-gray-900 dark:text-white transition-colors duration-500`}>
+        <GlobalBackground variant="page" intensity="medium" />
         <Navigation />
-        <main className="pt-16">
+        <main className="relative z-10 pt-16">
           {children}
         </main>
       </body>

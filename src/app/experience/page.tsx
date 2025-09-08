@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import ExperienceSection from '@/components/sections/ExperienceSection';
+import PageTransition from '@/components/PageTransition';
 
 export const metadata: Metadata = {
   title: 'Experience - Vishvendra Singh Khangarot',
@@ -8,8 +9,10 @@ export const metadata: Metadata = {
 
 export default function Experience() {
   return (
-    <div className="pt-16">
-      <ExperienceSection />
-    </div>
+    <PageTransition>
+      <div className="relative z-10">
+        <ExperienceSection />
+      </div>
+    </PageTransition>
   );
 }

@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { ChevronDown, Download, Mail, Github, Linkedin } from 'lucide-react';
-import ParallaxHeroBackground from '@/components/ParallaxHeroBackground';
 import { personalInfo, socialLinks } from '@/data';
+import { FadeInUp, SlideInLeft, SlideInRight, StaggerContainer, StaggerItem } from '@/components/PageTransition';
 import Image from 'next/image';
 
 export default function HeroSection() {
@@ -20,204 +20,212 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center overflow-hidden">
-      <ParallaxHeroBackground />
-      <div className="relative z-10 min-h-screen flex items-center justify-center w-full">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            {/* Text Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-center lg:text-left relative z-10"
-            >
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-              >
-                <span className="block text-gray-900 dark:text-white">
-                  Hi, I&apos;m
-                </span>
-                <span className="block gradient-text text-glow">
-                  {personalInfo.name.split(' ')[0]}
-                </span>
-              </motion.h1>
+    <section id="hero" className="min-h-screen relative flex items-center justify-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Text Content */}
+          <SlideInLeft className="text-center lg:text-left">
+            <StaggerContainer>
+              <StaggerItem>
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
+                  <span className="block text-gray-900 dark:text-white transition-colors duration-500">
+                    Hi, I&apos;m
+                  </span>
+                  <span className="block gradient-text text-glow">
+                    {personalInfo.name.split(' ')[0]}
+                  </span>
+                </h1>
+              </StaggerItem>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed"
-              >
-                {personalInfo.title}
-              </motion.p>
+              <StaggerItem>
+                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-500">
+                  {personalInfo.title}
+                </p>
+              </StaggerItem>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6, duration: 0.8 }}
-                className="text-lg text-gray-500 dark:text-gray-400 mb-10 max-w-2xl"
-              >
-                {personalInfo.bio}
-              </motion.p>
+              <StaggerItem>
+                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-500">
+                  {personalInfo.bio}
+                </p>
+              </StaggerItem>
 
-              {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.8, duration: 0.8 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mb-12"
-              >
-                <motion.button
-                  onClick={handleDownloadCV}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="inline-flex items-center px-8 py-4 text-lg font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:from-primary-700 hover:to-primary-800"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Download CV
-                </motion.button>
-
-                <motion.div
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center px-8 py-4 text-lg font-semibold text-primary-600 dark:text-primary-400 bg-transparent border-2 border-primary-600 dark:border-primary-400 rounded-full hover:bg-primary-600 hover:text-white dark:hover:bg-primary-400 dark:hover:text-gray-900 transition-all duration-300"
+              <StaggerItem>
+                <div className="flex flex-col sm:flex-row gap-4 mb-8">
+                  <motion.button
+                    onClick={handleDownloadCV}
+                    className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
                   >
-                    <Mail className="w-5 h-5 mr-2" />
-                    Get In Touch
-                  </Link>
-                </motion.div>
-              </motion.div>
-
-              {/* Social Links */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-                className="flex gap-6 justify-center lg:justify-start"
-              >
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.platform}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.2, y: -5 }}
-                    whileTap={{ scale: 0.9 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-primary-100 dark:hover:bg-primary-900 hover:text-primary-600 dark:hover:text-primary-400 transition-all duration-300 shadow-lg hover:shadow-xl"
-                  >
-                    {social.icon === 'github' && <Github className="w-6 h-6" />}
-                    {social.icon === 'linkedin' && <Linkedin className="w-6 h-6" />}
-                    {social.icon === 'mail' && <Mail className="w-6 h-6" />}
-                  </motion.a>
-                ))}
-              </motion.div>
-            </motion.div>
-
-            {/* Profile Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative z-10"
-            >
-              <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
-                {/* Floating background elements */}
-                <motion.div
-                  animate={{ 
-                    rotate: 360,
-                    scale: [1, 1.1, 1]
-                  }}
-                  transition={{ 
-                    rotate: { duration: 20, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
-                  }}
-                  className="absolute inset-0 rounded-full bg-gradient-to-r from-primary-400 via-purple-400 to-pink-400 opacity-20 blur-xl"
-                />
-                
-                <motion.div
-                  animate={{ 
-                    rotate: -360,
-                    scale: [1, 0.9, 1]
-                  }}
-                  transition={{ 
-                    rotate: { duration: 15, repeat: Infinity, ease: "linear" },
-                    scale: { duration: 3, repeat: Infinity, ease: "easeInOut" }
-                  }}
-                  className="absolute inset-4 rounded-full bg-gradient-to-r from-blue-400 via-green-400 to-yellow-400 opacity-15 blur-lg"
-                />
-
-                {/* Profile Image Container */}
-                <motion.div
-                  animate={{ y: [0, -10, 0] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="relative z-10 w-full h-full rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-2xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900"
-                >
-                  {/* Placeholder for profile image */}
-                  <div className="w-full h-full flex items-center justify-center text-6xl font-bold text-gray-400 dark:text-gray-600">
-                    {personalInfo.name.split(' ').map(n => n[0]).join('')}
-                  </div>
+                    <Download className="w-5 h-5 group-hover:animate-bounce" />
+                    Download CV
+                  </motion.button>
                   
-                  {/* Uncomment and update when you have a profile image */}
-                  {/* <Image
-                    src={personalInfo.profileImage || '/images/profile.jpg'}
-                    alt={personalInfo.name}
-                    fill
-                    className="object-cover"
-                    priority
-                  /> */}
-                </motion.div>
+                  <Link href="/contact">
+                    <motion.button
+                      className="group border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Mail className="w-5 h-5 group-hover:animate-pulse" />
+                      Get In Touch
+                    </motion.button>
+                  </Link>
+                </div>
+              </StaggerItem>
 
-                {/* Decorative elements */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                  className="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full opacity-80"
-                />
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                  className="absolute -bottom-6 -left-6 w-6 h-6 bg-pink-400 rounded-full opacity-80"
-                />
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                  className="absolute top-1/4 -left-8 w-4 h-4 bg-blue-400 rounded-full opacity-80"
-                />
-              </div>
-            </motion.div>
-          </div>
+              <StaggerItem>
+                <div className="flex justify-center lg:justify-start gap-6">
+                  {socialLinks.map((social, index) => (
+                    <motion.a
+                      key={social.platform}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gradient-to-r hover:from-blue-500 hover:to-purple-500 transition-all duration-300 transform hover:scale-110"
+                      whileHover={{ 
+                        scale: 1.1,
+                        rotate: 5,
+                        boxShadow: "0 10px 25px rgba(0,0,0,0.1)"
+                      }}
+                      whileTap={{ scale: 0.9 }}
+                      initial={{ opacity: 0, scale: 0 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 1 + index * 0.1, duration: 0.3 }}
+                    >
+                      {social.platform === 'GitHub' && <Github className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300" />}
+                      {social.platform === 'LinkedIn' && <Linkedin className="w-6 h-6 text-gray-600 dark:text-gray-300 group-hover:text-white transition-colors duration-300" />}
+                    </motion.a>
+                  ))}
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
+          </SlideInLeft>
+
+          {/* Profile Image */}
+          <SlideInRight className="relative">
+            <div className="relative mx-auto w-80 h-80 lg:w-96 lg:h-96">
+              {/* Floating background elements */}
+              <motion.div
+                animate={{ 
+                  rotate: 360,
+                  scale: [1, 1.1, 1],
+                }}
+                transition={{ 
+                  rotate: { duration: 20, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute inset-0 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full blur-3xl opacity-20"
+              />
+              
+              <motion.div
+                animate={{ 
+                  rotate: -360,
+                  scale: [1.1, 1, 1.1],
+                }}
+                transition={{ 
+                  rotate: { duration: 25, repeat: Infinity, ease: "linear" },
+                  scale: { duration: 6, repeat: Infinity, ease: "easeInOut" }
+                }}
+                className="absolute inset-4 bg-gradient-to-l from-purple-400 to-pink-500 rounded-full blur-2xl opacity-15"
+              />
+
+              {/* Profile image container */}
+              <motion.div
+                className="relative z-10 w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 p-2 shadow-2xl"
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.05,
+                  rotate: 5,
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <div className="w-full h-full rounded-full overflow-hidden bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-900">
+                  <Image
+                    src="/images/profile.jpg"
+                    alt={personalInfo.name}
+                    width={400}
+                    height={400}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 hover:scale-110"
+                    priority
+                  />
+                </div>
+              </motion.div>
+
+              {/* Floating tech icons */}
+              <motion.div
+                className="absolute -top-4 -right-4 w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center shadow-lg"
+                animate={{
+                  y: [0, -10, 0],
+                  rotate: [0, 10, 0],
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "easeInOut"
+                }}
+              >
+                <span className="text-white font-bold text-lg">⚛️</span>
+              </motion.div>
+
+              <motion.div
+                className="absolute -bottom-4 -left-4 w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center shadow-lg"
+                animate={{
+                  y: [0, 10, 0],
+                  rotate: [0, -10, 0],
+                }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 1
+                }}
+              >
+                <span className="text-white font-bold text-lg">🚀</span>
+              </motion.div>
+
+              <motion.div
+                className="absolute top-1/4 -left-8 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-full flex items-center justify-center shadow-lg"
+                animate={{
+                  x: [0, -5, 0],
+                  scale: [1, 1.2, 1],
+                }}
+                transition={{
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: 2
+                }}
+              >
+                <span className="text-white font-bold text-sm">💻</span>
+              </motion.div>
+            </div>
+          </SlideInRight>
         </div>
 
-        {/* Scroll Down Indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-        >
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+        {/* Scroll indicator */}
+        <FadeInUp delay={2} className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
+          <Link 
+            href="#about" 
+            className="group flex flex-col items-center text-gray-600 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
           >
-            <Link
-              href="/about"
-              className="flex flex-col items-center text-gray-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-300 group"
+            <motion.span 
+              className="text-sm mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-300"
+              animate={{ opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2, repeat: Infinity }}
             >
-              <span className="text-sm mb-2 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
-                Learn More
-              </span>
-              <ChevronDown className="w-6 h-6" />
-            </Link>
-          </motion.div>
-        </motion.div>
+              Learn More
+            </motion.span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChevronDown className="w-6 h-6 group-hover:scale-110 transition-transform duration-300" />
+            </motion.div>
+          </Link>
+        </FadeInUp>
       </div>
     </section>
   );
