@@ -96,8 +96,8 @@ export default function ContactSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
             >
-              Ready to start your next project? Let's work together to create something amazing. 
-              I'm always open to discussing new opportunities and interesting challenges.
+              Ready to start your next project? Let&apos;s work together to create something amazing. 
+              I&apos;m always open to discussing new opportunities and interesting challenges.
             </motion.p>
           </div>
         </AnimatedSection>
@@ -107,7 +107,7 @@ export default function ContactSection() {
           <AnimatedSection animation="slideRight">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
-                Let's start a conversation
+                Let&apos;s start a conversation
               </h3>
               
               <div className="space-y-6 mb-8">
@@ -281,7 +281,7 @@ export default function ContactSection() {
                     className="flex items-center p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg text-green-800 dark:text-green-400"
                   >
                     <CheckCircle className="w-5 h-5 mr-2" />
-                    Message sent successfully! I'll get back to you soon.
+                    Message sent successfully! I&apos;ll get back to you soon.
                   </motion.div>
                 )}
 

@@ -38,7 +38,7 @@ export default function HeroSection() {
                 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
               >
                 <span className="block text-gray-900 dark:text-white">
-                  Hi, I'm
+                  Hi, I&apos;m
                 </span>
                 <span className="block gradient-text text-glow">
                   {personalInfo.name.split(' ')[0]}

@@ -36,7 +36,7 @@ export default function ExperienceSection() {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
             >
-              My professional journey and the amazing companies I've had the privilege to work with.
+              My professional journey and the amazing companies I&apos;ve had the privilege to work with.
             </motion.p>
           </div>
         </AnimatedSection>

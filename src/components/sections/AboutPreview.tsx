@@ -66,7 +66,7 @@ export default function AboutPreview() {
                 </p>
                 
                 <p>
-                  Throughout my career, I've led teams, architected scalable solutions, and delivered 
+                  Throughout my career, I&apos;ve led teams, architected scalable solutions, and delivered 
                   high-impact projects across diverse industries including banking, government, and technology.
                 </p>
               </div>

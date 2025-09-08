@@ -269,7 +269,7 @@ export default function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
               Interested in working together?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Let's discuss how I can help bring your next project to life.
+              Let&apos;s discuss how I can help bring your next project to life.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link

@@ -54,14 +54,14 @@ export default function AboutSection() {
               
               <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
                 <p>
-                  I'm a Senior Full-Stack Developer with 7+ years of experience delivering high-performance 
+                  I&apos;m a Senior Full-Stack Developer with 7+ years of experience delivering high-performance 
                   web and mobile applications for global clients including Google and DBS Bank. My expertise 
                   spans across React.js, Angular, Node.js, RESTful APIs, and micro-frontend architectures.
                 </p>
                 
                 <p>
-                  Throughout my career, I've worked on diverse projects ranging from government defense systems 
-                  and banking platforms to e-commerce solutions and mobile applications. I've been recognized 
+                  Throughout my career, I&apos;ve worked on diverse projects ranging from government defense systems 
+                  and banking platforms to e-commerce solutions and mobile applications. I&apos;ve been recognized 
                   as Best Developer of the Year 2020 for my outstanding contributions to a confidential 
                   government Android project.
                 </p>

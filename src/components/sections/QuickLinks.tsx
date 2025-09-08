@@ -57,7 +57,7 @@ const quickLinks = [
   {
     href: '/contact',
     title: 'Get In Touch',
-    description: 'Ready to work together? Let\'s start a conversation',
+    description: 'Ready to work together? Let&apos;s start a conversation',
     icon: Mail,
     color: 'from-red-500 to-red-600',
     bgColor: 'bg-red-50 dark:bg-red-900/20'
