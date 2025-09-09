@@ -35,8 +35,8 @@ const careerMilestones = [
 
 export default function CareerTimeline() {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 portfolio-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 card-overlay">
         <AnimatedSection animation="fadeIn">
           <div className="text-center mb-16">
             <motion.h2

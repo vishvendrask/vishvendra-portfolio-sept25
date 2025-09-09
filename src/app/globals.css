@@ -134,8 +134,251 @@ body {
   text-shadow: 0 0 20px rgba(147, 197, 253, 0.5);
 }
 
-/* Background handled by ParallaxBackground component */
+/* Background handled by ScrollStorytellingBackground component */
 body {
   background: transparent;
   transition: background 0.2s ease !important;
+}
+
+/* Make all sections transparent to show storytelling background */
+.portfolio-section {
+  background: transparent !important;
+}
+
+/* Remove all section backgrounds to show parallax */
+section, main, div, .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
+  background: transparent !important;
+}
+
+/* Specific overrides for common container classes */
+.py-20, .py-16, .py-12, .py-10, .py-8 {
+  background: transparent !important;
+}
+
+/* Ensure sections have proper spacing for parallax */
+section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* Global parallax background setup */
+.parallax-container {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 600vh !important;
+  z-index: -10 !important;
+  pointer-events: none !important;
+}
+
+/* Override any remaining white backgrounds */
+.bg-white, .bg-gray-50, .bg-gray-100 {
+  background: transparent !important;
+}
+
+.dark .bg-gray-800, .dark .bg-gray-900, .dark .bg-black {
+  background: transparent !important;
+}
+
+/* Force transparency on all containers - comprehensive override */
+[class*="bg-white"], [class*="bg-gray-"] {
+  background: transparent !important;
+}
+
+.dark [class*="bg-white"], .dark [class*="bg-gray-"] {
+  background: transparent !important;
+}
+
+/* Specific overrides for common backgrounds */
+.bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-gray-500, .bg-gray-600, .bg-gray-700, .bg-gray-800, .bg-gray-900,
+.dark\:bg-gray-50, .dark\:bg-gray-100, .dark\:bg-gray-200, .dark\:bg-gray-300, .dark\:bg-gray-400, .dark\:bg-gray-500, .dark\:bg-gray-600, .dark\:bg-gray-700, .dark\:bg-gray-800, .dark\:bg-gray-900 {
+  background: transparent !important;
+}
+
+/* Dark theme specific */
+.dark .bg-white, .dark .bg-gray-50, .dark .bg-gray-100, .dark .bg-gray-200, .dark .bg-gray-300, .dark .bg-gray-400, .dark .bg-gray-500, .dark .bg-gray-600, .dark .bg-gray-700, .dark .bg-gray-800, .dark .bg-gray-900 {
+  background: transparent !important;
+}
+
+/* Theme-aware text system */
+.theme-text {
+  color: #1a1a1a !important;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+}
+
+.dark .theme-text {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.theme-text-muted {
+  color: #4a4a4a !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.dark .theme-text-muted {
+  color: #e0e0e0 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Headings with strong contrast */
+.theme-heading {
+  color: #000000 !important;
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9);
+  font-weight: 700;
+}
+
+.dark .theme-heading {
+  color: #ffffff !important;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+/* Theme-aware card system */
+.theme-card {
+  background: rgba(255, 255, 255, 0.12) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  margin: 1rem 0;
+}
+
+.dark .theme-card {
+  background: rgba(0, 0, 0, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+/* Button system */
+.theme-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: none;
+  border-radius: 12px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+}
+
+.theme-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+}
+
+.dark .theme-button {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.dark .theme-button:hover {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+}
+
+/* Smart background system - preserve parallax while ensuring readability */
+
+/* Transparent backgrounds for sections to show parallax */
+.portfolio-section, section, main, .container {
+  background: transparent !important;
+}
+
+/* Content containers with theme-aware glass effect */
+.content-container {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.dark .content-container {
+  background: rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+/* Navigation and header backgrounds */
+.nav-background {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.dark .nav-background {
+  background: rgba(0, 0, 0, 0.9) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Force all text to use theme-aware colors */
+h1, h2, h3, h4, h5, h6 {
+  color: #1a1a1a !important;
+  text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+  font-weight: 700;
+}
+
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #ffffff !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+p, span, div {
+  color: #4a4a4a !important;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+}
+
+.dark p, .dark span, .dark div {
+  color: #e0e0e0 !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+/* Nuclear override - force all backgrounds transparent except buttons and navigation */
+* {
+  background-color: transparent !important;
+}
+
+/* Additional safety net for any white backgrounds */
+*[style*="background"], *[style*="background-color"] {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Ensure body and html are transparent */
+html, body {
+  background: transparent !important;
+  background-color: transparent !important;
+}
+
+/* Preserve essential backgrounds */
+button, [role="button"], .theme-button, nav, .nav-background, [class*="bg-gradient-"], [class*="bg-primary-"], [class*="bg-blue-"], [class*="bg-purple-"], [class*="bg-green-"], [class*="bg-yellow-"], [class*="bg-red-"] {
+  background: revert !important;
+  background-color: revert !important;
+}
+
+/* Preserve icon backgrounds */
+.w-12.h-12, .w-10.h-10, .w-8.h-8 {
+  background: revert !important;
+  background-color: revert !important;
+}
+
+/* Override any remaining gray backgrounds */
+[class*="bg-gray-"], [class*="dark:bg-gray-"] {
+  background: transparent !important;
+}
+
+/* Preserve button and link colors */
+button, a[class*="bg-"], [class*="bg-primary-"], [class*="bg-blue-"], [class*="bg-purple-"], [class*="gradient-"] {
+  color: revert !important;
+  text-shadow: revert !important;
+}
+
+/* Preserve icon colors */
+svg, .lucide {
+  color: inherit !important;
 }

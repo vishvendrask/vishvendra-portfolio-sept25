@@ -66,8 +66,8 @@ const quickLinks = [
 
 export default function QuickLinks() {
   return (
-    <section className="py-20 bg-gray-50 dark:bg-gray-800/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-20 portfolio-section">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 card-overlay">
         <AnimatedSection animation="fadeIn">
           <div className="text-center mb-16">
             <motion.h2

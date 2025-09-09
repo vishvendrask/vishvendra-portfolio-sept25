@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
-import ParallaxBackground from '@/components/ParallaxBackground'
+import ExactCodePenParallax from '@/components/ExactCodePenParallax'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 
 const inter = Inter({ 
@@ -101,11 +101,16 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body className={`${inter.className} antialiased text-gray-900 dark:text-white transition-colors duration-300`}>
+      <body className={`${inter.className} antialiased transition-colors duration-300`}>
         <ThemeProvider defaultTheme="light" storageKey="theme">
-          <ParallaxBackground variant="hero" intensity="high" />
+          {/* Exact CodePen Parallax Background */}
+          <ExactCodePenParallax />
+          
+          {/* Navigation */}
           <Navigation />
-          <main className="relative z-10 pt-16">
+          
+          {/* Main Content */}
+          <main className="relative pt-16" style={{ zIndex: 10 }}>
             {children}
           </main>
         </ThemeProvider>

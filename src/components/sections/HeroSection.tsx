@@ -20,15 +20,15 @@ export default function HeroSection() {
   };
 
   return (
-    <section id="hero" className="min-h-screen relative flex items-center justify-center">
+    <section id="hero" className="min-h-screen relative flex items-center justify-center portfolio-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <SlideInLeft className="text-center lg:text-left">
             <StaggerContainer>
               <StaggerItem>
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6">
-                  <span className="block text-gray-900 dark:text-white transition-colors duration-500">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 theme-heading">
+                  <span className="block">
                     Hi, I&apos;m
                   </span>
                   <span className="block gradient-text text-glow">
@@ -38,13 +38,13 @@ export default function HeroSection() {
               </StaggerItem>
 
               <StaggerItem>
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-500">
+                <p className="text-xl md:text-2xl mb-8 leading-relaxed theme-text">
                   {personalInfo.title}
                 </p>
               </StaggerItem>
 
               <StaggerItem>
-                <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed transition-colors duration-500">
+                <p className="text-lg md:text-xl mb-8 leading-relaxed theme-text-muted">
                   {personalInfo.bio}
                 </p>
               </StaggerItem>
@@ -53,7 +53,7 @@ export default function HeroSection() {
                 <div className="flex flex-col sm:flex-row gap-4 mb-8">
                   <motion.button
                     onClick={handleDownloadCV}
-                    className="group bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-lg flex items-center justify-center gap-2"
+                    className="theme-button flex items-center justify-center gap-2"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -63,7 +63,7 @@ export default function HeroSection() {
                   
                   <Link href="/contact">
                     <motion.button
-                      className="group border-2 border-blue-600 dark:border-blue-400 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-400 dark:hover:text-gray-900 px-8 py-4 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-2"
+                      className="theme-button bg-transparent border-2 border-primary-500 hover:bg-primary-500 flex items-center justify-center gap-2"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >

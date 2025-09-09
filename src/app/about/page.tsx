@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function About() {
   return (
     <PageTransition>
-      <div className="relative z-10">
+      <div className="relative min-h-screen">
         <AboutSection />
         <CareerTimeline />
       </div>

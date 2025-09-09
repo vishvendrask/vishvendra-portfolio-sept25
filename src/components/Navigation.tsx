@@ -43,10 +43,8 @@ export default function Navigation() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        scrolled
-          ? "bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-lg"
-          : "bg-transparent"
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-background",
+        scrolled ? "shadow-lg" : ""
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -79,10 +77,10 @@ export default function Navigation() {
                     href={item.href}
                     onClick={handleNavClick}
                     className={cn(
-                      "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:scale-105 block",
+                      "px-3 py-2 rounded-md text-sm font-medium transition-all duration-200 hover:scale-105 block theme-text",
                       pathname === item.href
-                        ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30"
-                        : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        ? "text-primary-400 bg-primary-500/20"
+                        : "hover:text-primary-400 hover:bg-primary-500/10"
                     )}
                   >
                     {item.name}
@@ -99,7 +97,7 @@ export default function Navigation() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
                 onClick={toggleTheme}
-                className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="p-2 rounded-lg theme-text hover:bg-primary-500/10 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -114,7 +112,7 @@ export default function Navigation() {
             <div className="md:hidden">
               <motion.button
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800"
+                className="p-2 rounded-lg theme-text hover:bg-primary-500/10 transition-colors"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -136,7 +134,7 @@ export default function Navigation() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200 dark:border-gray-700"
+            className="md:hidden nav-background border-t border-gray-200/20 dark:border-white/20"
           >
             <div className="px-2 pt-2 pb-3 space-y-1">
               {navItems.map((item, index) => (
@@ -150,10 +148,10 @@ export default function Navigation() {
                     href={item.href}
                     onClick={handleNavClick}
                     className={cn(
-                      "block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors",
+                      "block w-full text-left px-3 py-2 rounded-md text-base font-medium transition-colors theme-text",
                       pathname === item.href
-                        ? "text-primary-600 dark:text-primary-400 bg-primary-50 dark:bg-primary-900/30"
-                        : "text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400 hover:bg-gray-100 dark:hover:bg-gray-800"
+                        ? "text-primary-400 bg-primary-500/20"
+                        : "hover:text-primary-400 hover:bg-primary-500/10"
                     )}
                   >
                     {item.name}
