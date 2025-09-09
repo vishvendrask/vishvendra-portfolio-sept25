@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { Inter, Fira_Code } from 'next/font/google'
 import './globals.css'
 import Navigation from '@/components/Navigation'
-import AnimatedBackground from '@/components/AnimatedBackground'
+import ParallaxBackground from '@/components/ParallaxBackground'
 import { ThemeProvider } from '@/providers/ThemeProvider'
 
 const inter = Inter({ 
@@ -103,7 +103,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased text-gray-900 dark:text-white transition-colors duration-300`}>
         <ThemeProvider defaultTheme="light" storageKey="theme">
-          <AnimatedBackground variant="hero" intensity="high" />
+          <ParallaxBackground variant="hero" intensity="high" />
           <Navigation />
           <main className="relative z-10 pt-16">
             {children}
