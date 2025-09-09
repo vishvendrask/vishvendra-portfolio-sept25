@@ -49,7 +49,6 @@ export function Scene1Hills() {
       {/* Info text placeholder */}
       <g id="info">
         <polygon id="arrow" points="353.93 368.91 356.06 366.79 374.26 385 392.47 366.79 394.59 368.91 374.26 389.24 353.93 368.91" fill="#fff" stroke="#231f20" strokeMiterlimit="10" strokeWidth="0.5" />
-        <text id="text" x="375" y="350" textAnchor="middle" fill="#fff" fontSize="14">Scroll Down</text>
       </g>
     </g>
   );

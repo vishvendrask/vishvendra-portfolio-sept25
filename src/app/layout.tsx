@@ -78,7 +78,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${firaCode.variable}`}>
+    <html lang="en" className={`dark ${inter.variable} ${firaCode.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -90,19 +90,25 @@ export default function RootLayout({
           __html: `
             (function() {
               try {
-                var theme = localStorage.getItem('theme') || 
-                           (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                var theme = localStorage.getItem('theme') || 'dark';
                 if (theme === 'dark') {
                   document.documentElement.classList.add('dark');
                   document.body.classList.add('dark');
+                } else {
+                  document.documentElement.classList.remove('dark');
+                  document.body.classList.remove('dark');
                 }
-              } catch (e) {}
+              } catch (e) {
+                // Default to dark theme if script fails
+                document.documentElement.classList.add('dark');
+                document.body.classList.add('dark');
+              }
             })();
           `
         }} />
       </head>
       <body className={`${inter.className} antialiased transition-colors duration-300`}>
-        <ThemeProvider defaultTheme="light" storageKey="theme">
+        <ThemeProvider defaultTheme="dark" storageKey="theme">
           {/* Exact CodePen Parallax Background */}
           <ExactCodePenParallax />
           

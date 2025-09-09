@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Arshine 3D Font Face Declaration */
+@font-face {
+  font-family: 'Arshine3D';
+  src: url('/fonts/ArshineExtruderight-4nZ99.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Arshine3D';
+  src: url('/fonts/ArshineExtruderight-4nZ99.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 
@@ -125,6 +142,73 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
+/* Animated logo gradient */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-logo-text {
+  font-family: 'Arshine3D', 'Impact', 'Arial Black', sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #1f2937; /* Fallback color for light theme */
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.1),
+    2px 2px 4px rgba(0, 0, 0, 0.15);
+  transform: perspective(400px) rotateX(10deg);
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.1));
+}
+
+.dark .animated-logo-text {
+  font-family: 'Arshine3D', 'Impact', 'Arial Black', sans-serif;
+  font-weight: normal;
+  letter-spacing: 0.02em;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #f9fafb; /* Fallback color for dark theme */
+  text-shadow: 
+    1px 1px 2px rgba(0, 0, 0, 0.2),
+    2px 2px 4px rgba(0, 0, 0, 0.3);
+  transform: perspective(400px) rotateX(10deg);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+}
+
+.cursor {
+  font-family: 'Arshine3D', 'Impact', 'Arial Black', sans-serif;
+  font-weight: normal;
+  background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #dc2626 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #1f2937; /* Fallback color for light theme */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.dark .cursor {
+  font-family: 'Arshine3D', 'Impact', 'Arial Black', sans-serif;
+  font-weight: normal;
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #f472b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: #f9fafb; /* Fallback color for dark theme */
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.2));
+}
+
 /* Text glow effect */
 .text-glow {
   text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
@@ -142,17 +226,17 @@ body {
 
 /* Make all sections transparent to show storytelling background */
 .portfolio-section {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Remove all section backgrounds to show parallax */
 section, main, div, .container, .max-w-7xl, .max-w-6xl, .max-w-5xl, .max-w-4xl {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Specific overrides for common container classes */
 .py-20, .py-16, .py-12, .py-10, .py-8 {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Ensure sections have proper spacing for parallax */
@@ -178,31 +262,31 @@ section {
 
 /* Override any remaining white backgrounds */
 .bg-white, .bg-gray-50, .bg-gray-100 {
-  background: transparent !important;
+  background: transparent;
 }
 
 .dark .bg-gray-800, .dark .bg-gray-900, .dark .bg-black {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Force transparency on all containers - comprehensive override */
 [class*="bg-white"], [class*="bg-gray-"] {
-  background: transparent !important;
+  background: transparent;
 }
 
 .dark [class*="bg-white"], .dark [class*="bg-gray-"] {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Specific overrides for common backgrounds */
 .bg-white, .bg-gray-50, .bg-gray-100, .bg-gray-200, .bg-gray-300, .bg-gray-400, .bg-gray-500, .bg-gray-600, .bg-gray-700, .bg-gray-800, .bg-gray-900,
 .dark\:bg-gray-50, .dark\:bg-gray-100, .dark\:bg-gray-200, .dark\:bg-gray-300, .dark\:bg-gray-400, .dark\:bg-gray-500, .dark\:bg-gray-600, .dark\:bg-gray-700, .dark\:bg-gray-800, .dark\:bg-gray-900 {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Dark theme specific */
 .dark .bg-white, .dark .bg-gray-50, .dark .bg-gray-100, .dark .bg-gray-200, .dark .bg-gray-300, .dark .bg-gray-400, .dark .bg-gray-500, .dark .bg-gray-600, .dark .bg-gray-700, .dark .bg-gray-800, .dark .bg-gray-900 {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Theme-aware text system */
@@ -286,7 +370,7 @@ section {
 
 /* Transparent backgrounds for sections to show parallax */
 .portfolio-section, section, main, .container {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Content containers with theme-aware glass effect */
@@ -304,16 +388,23 @@ section {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
-/* Navigation and header backgrounds */
+/* Navigation and header backgrounds - Fintopio style */
 .nav-background {
-  background: rgba(255, 255, 255, 0.95) !important;
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0.08)) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 
 .dark .nav-background {
-  background: rgba(0, 0, 0, 0.9) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, rgba(30, 30, 30, 0.95), rgba(20, 20, 20, 0.85)) !important;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 /* Force all text to use theme-aware colors */
@@ -338,28 +429,64 @@ p, span, div {
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6);
 }
 
-/* Nuclear override - force all backgrounds transparent except buttons and navigation */
-* {
-  background-color: transparent !important;
+/* Targeted transparency for main sections only */
+main, section, article, div[class*="container"], div[class*="max-w-"], div[class*="py-"], div[class*="px-"] {
+  background-color: transparent;
 }
 
-/* Additional safety net for any white backgrounds */
-*[style*="background"], *[style*="background-color"] {
-  background: transparent !important;
-  background-color: transparent !important;
+/* Additional safety net for any white backgrounds in layout containers only */
+main[style*="background"], section[style*="background"], div[class*="container"][style*="background"] {
+  background: transparent;
+  background-color: transparent;
 }
 
 /* Ensure body and html are transparent */
 html, body {
-  background: transparent !important;
-  background-color: transparent !important;
+  background: transparent;
+  background-color: transparent;
 }
 
 /* Preserve essential backgrounds */
-button, [role="button"], .theme-button, nav, .nav-background, [class*="bg-gradient-"], [class*="bg-primary-"], [class*="bg-blue-"], [class*="bg-purple-"], [class*="bg-green-"], [class*="bg-yellow-"], [class*="bg-red-"] {
+button, [role="button"], .theme-button, .theme-toggle, nav, .nav-background, [class*="bg-gradient-"], [class*="bg-primary-"], [class*="bg-blue-"], [class*="bg-purple-"], [class*="bg-green-"], [class*="bg-yellow-"], [class*="bg-red-"] {
   background: revert !important;
   background-color: revert !important;
 }
+
+/* Specific theme toggle background override */
+.theme-toggle {
+  background: var(--toggle-bg) !important;
+  background-color: var(--toggle-bg-color) !important;
+}
+
+.theme-toggle * {
+  background: revert !important;
+  background-color: revert !important;
+}
+
+/* Force background for custom theme toggle */
+.custom-theme-toggle-bg {
+  background: revert !important;
+  background-color: revert !important;
+}
+
+/* Ultra-specific override for theme toggle */
+div.custom-theme-toggle-bg {
+  background: inherit !important;
+  background-color: inherit !important;
+}
+
+/* Force theme toggle backgrounds */
+[data-theme-toggle="true"] {
+  background: var(--toggle-bg) !important;
+  background-color: var(--toggle-bg-solid) !important;
+}
+
+/* Very specific CSS for Framer Motion divs in theme toggle */
+.relative.w-20.h-10.rounded-full {
+  background: var(--toggle-bg) !important;
+  background-color: var(--toggle-bg-solid) !important;
+}
+
 
 /* Preserve icon backgrounds */
 .w-12.h-12, .w-10.h-10, .w-8.h-8 {
@@ -369,7 +496,7 @@ button, [role="button"], .theme-button, nav, .nav-background, [class*="bg-gradie
 
 /* Override any remaining gray backgrounds */
 [class*="bg-gray-"], [class*="dark:bg-gray-"] {
-  background: transparent !important;
+  background: transparent;
 }
 
 /* Preserve button and link colors */
@@ -381,4 +508,120 @@ button, a[class*="bg-"], [class*="bg-primary-"], [class*="bg-blue-"], [class*="b
 /* Preserve icon colors */
 svg, .lucide {
   color: inherit !important;
+}
+
+/* Navigation icons specific styling */
+button svg {
+  color: inherit !important;
+}
+
+/* Mobile menu icons */
+.md\\:hidden button svg {
+  color: inherit !important;
+}
+
+/* Glass Card Navigation Pill */
+.glass-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 0 20px 10px rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+}
+
+.glass-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.8),
+    transparent,
+    rgba(255, 255, 255, 0.3)
+  );
+}
+
+/* Dark theme glass card */
+.dark .glass-card {
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    inset 0 0 20px 10px rgba(255, 255, 255, 0.05);
+}
+
+.dark .glass-card::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+}
+
+.dark .glass-card::after {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.3),
+    transparent,
+    rgba(255, 255, 255, 0.1)
+  );
+}
+
+/* Navigation links color override */
+nav a, nav .nav-pill a, nav .nav-pill-mobile a {
+  color: inherit !important;
+  text-shadow: none !important;
+}
+
+/* Specific navigation link styling */
+.text-gray-700 {
+  color: #374151 !important;
+}
+
+.dark .dark\\:text-gray-200 {
+  color: #e5e7eb !important;
+}
+
+.dark .dark\\:text-gray-100 {
+  color: #f3f4f6 !important;
+}
+
+.text-gray-900 {
+  color: #111827 !important;
+}
+
+.dark .dark\\:hover\\:text-gray-50:hover {
+  color: #f9fafb !important;
+}
+
+.hover\\:text-gray-900:hover {
+  color: #111827 !important;
 }

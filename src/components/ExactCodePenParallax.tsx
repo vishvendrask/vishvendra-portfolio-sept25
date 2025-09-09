@@ -53,6 +53,11 @@ export default function ExactCodePenParallax() {
       scrub: 3
     });
 
+    // Distant mountains animation (very slow for depth)
+    scene1.to("#mountain-far-3", { y: 0.5 * speed, x: 0.2 * speed }, 0);
+    scene1.to("#mountain-far-2", { y: 0.7 * speed, x: 0.3 * speed }, 0);
+    scene1.to("#mountain-far-1", { y: 0.9 * speed, x: 0.4 * speed }, 0);
+
     // Hills animation
     scene1.to("#h1-1", { y: 3 * speed, x: 1 * speed, scale: 0.9, ease: "power1.in" }, 0);
     scene1.to("#h1-2", { y: 2.6 * speed, x: -0.6 * speed, ease: "power1.in" }, 0);
@@ -68,8 +73,6 @@ export default function ExactCodePenParallax() {
     scene1.to("#cloudStart-L", { x: -300 }, 0);
     scene1.to("#cloudStart-R", { x: 300 }, 0);
 
-    // Animate text - this is the key part for text moving behind layers
-    scene1.to("#info", { y: 8 * speed }, 0);
 
     /*   Flying Element (Bird or Shooting Star)   */
     if (isDark) {
@@ -183,29 +186,75 @@ export default function ExactCodePenParallax() {
         {/* All CodePen Gradients and Defs */}
         <CodePenSVGDefs />
 
-        {/* Background */}
-        <rect id="bg" width="750" height="500" opacity="0.8" fill={isDark ? "url(#moon_grad)" : "url(#bg_grad)"} />
+        {/* Sky Background Image - Full Opacity */}
+        <image 
+          id="sky-bg"
+          href={isDark ? "/images/nightsky.jpg" : "/images/daysky.jpg"}
+          x="0" 
+          y="0" 
+          width="750" 
+          height="500"
+          preserveAspectRatio="xMidYMid slice"
+          opacity="1.0"
+        />
+
+
+        {/* Distant Mountain Layers - Very Far Away */}
+        <g id="distant-mountains" style={{ filter: 'blur(1px)', opacity: 0.6 }}>
+          <path id="mountain-far-3"
+            d="M0,200 Q100,180 200,190 T400,185 T600,180 T750,185 V350 H0 Z"
+            fill={isDark ? "#2a2a3e" : "#B8A89A"}
+          />
+          <path id="mountain-far-2"
+            d="M0,220 Q120,200 240,210 T480,205 T720,200 T750,205 V350 H0 Z"
+            fill={isDark ? "#3a3a4e" : "#A69B8A"}
+            style={{ opacity: 0.8 }}
+          />
+          <path id="mountain-far-1"
+            d="M0,240 Q150,220 300,230 T600,225 T750,230 V350 H0 Z"
+            fill={isDark ? "#4a4a5e" : "#948B7A"}
+            style={{ opacity: 0.9 }}
+          />
+        </g>
 
         {/* CodePen Clouds */}
         <CodePenClouds />
 
-        {/* Text that moves behind layers - this is the key element */}
-        <g id="info">
-          <polygon id="arrow" points="353.93 368.91 356.06 366.79 374.26 385 392.47 366.79 394.59 368.91 374.26 389.24 353.93 368.91" fill="#fff" stroke="#231f20" strokeMiterlimit="10" strokeWidth="0.5" />
-          <path id="text"
-            d="M261.62,345.74c8.46,7,22.53-4.51,8.16-9.84-17.91-5.31-3.78-24.1,9.06-16.36L277.69,323c-8.32-5.73-19.5,5.41-5.8,9.55,18.58,6.42,2.18,25.66-11.33,16.74ZM302.54,350c-23.47,10.27-23.65-31.11.1-21.64l-1,3.27c-17.3-7.88-16.61,23.5.14,15.21Zm4.94-15.11c0-2.74,0-5.09-.19-7.25H311l.14,4.56h.19c1.19-3.52,4.35-5.66,7.63-4.94v4c-10.08-1.88-6.76,14-7.29,19.63h-4.18ZM343.71,339c.06,16.73-23.06,16-22.7.39C320.43,323.17,344.34,323.23,343.71,339Zm-18.43.24c-.33,11.66,14.44,11.71,14.11-.09C340.37,327.86,324.33,327.6,325.28,339.26ZM349,316.76h4.22v34.07H349Zm11.32,0h4.23v34.07h-4.23ZM382,318.92c35.43-9.2,34.89,39.64,0,31.81Zm4.18,28.6c23.33,5.69,24.08-31.95,0-25.53ZM435,339c.06,16.73-23.06,16-22.7.39C411.73,323.17,435.64,323.23,435,339Zm-18.43.24c-.33,11.66,14.43,11.71,14.11-.09C431.67,327.86,415.63,327.6,416.58,339.26Zm25.09-11.66c1.21,4.84,3.94,14.5,4.8,19.2h.15c1-4.69,4.38-14.43,5.85-19.2H456c1.44,4.8,4.69,14.59,5.66,19.2h.15c.7-4.59,3.81-14.45,5.08-19.2h4.18l-7.49,23.23h-3.84c-1.53-5-4.6-13.66-5.61-18.72h-.1c-1,5.17-4.22,13.71-5.85,18.72h-3.84l-7-23.23Zm33.63,6.29c0-2.4,0-4.37-.19-6.29h3.75l.24,3.84h.09c14.6-14.27,17.39,7,15.88,19.39h-4.22c-1-5.08,3.26-20.32-5.37-20.25-9.13,0-5.12,15-6,20.25H475.3Z"
-            fill="#fff" stroke="#231f20" strokeMiterlimit="10" strokeWidth="0.5" />
-        </g>
 
         {/* Flying Element: Bird (light) or Shooting Star (dark) */}
         {isDark ? (
           <g id="shooting-star">
-            <circle cx="100" cy="150" r="3" fill="#fff">
-              <animate attributeName="opacity" values="0;1;0" dur="0.5s" repeatCount="indefinite" />
+            {/* Main shooting star body with glow */}
+            <circle cx="100" cy="150" r="4" fill="#fff" style={{ filter: 'drop-shadow(0 0 6px #87CEEB)' }}>
+              <animate attributeName="r" values="3;5;3" dur="0.8s" repeatCount="indefinite" />
+              <animate attributeName="opacity" values="0.8;1;0.8" dur="0.6s" repeatCount="indefinite" />
             </circle>
-            <path d="M100,150 L130,180" stroke="#fff" strokeWidth="2" opacity="0.7">
-              <animate attributeName="opacity" values="0;0.7;0" dur="0.5s" repeatCount="indefinite" />
-            </path>
+            
+            {/* Sparkle trail */}
+            <g id="star-trail">
+              <path d="M100,150 L140,190" stroke="#87CEEB" strokeWidth="3" opacity="0.8" strokeLinecap="round">
+                <animate attributeName="opacity" values="0;0.8;0" dur="0.8s" repeatCount="indefinite" />
+              </path>
+              <path d="M105,155 L135,185" stroke="#B0E0E6" strokeWidth="2" opacity="0.6" strokeLinecap="round">
+                <animate attributeName="opacity" values="0;0.6;0" dur="0.6s" repeatCount="indefinite" begin="0.1s" />
+              </path>
+              <path d="M110,160 L130,180" stroke="#F0F8FF" strokeWidth="1" opacity="0.4" strokeLinecap="round">
+                <animate attributeName="opacity" values="0;0.4;0" dur="0.4s" repeatCount="indefinite" begin="0.2s" />
+              </path>
+            </g>
+            
+            {/* Sparkle particles */}
+            <g id="sparkles">
+              <circle cx="110" cy="160" r="1" fill="#87CEEB" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="0.3s" repeatCount="indefinite" begin="0.1s" />
+              </circle>
+              <circle cx="120" cy="170" r="0.8" fill="#B0E0E6" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="0.4s" repeatCount="indefinite" begin="0.3s" />
+              </circle>
+              <circle cx="125" cy="175" r="1.2" fill="#F0F8FF" opacity="0">
+                <animate attributeName="opacity" values="0;1;0" dur="0.5s" repeatCount="indefinite" begin="0.2s" />
+              </circle>
+            </g>
           </g>
         ) : (
           <CodePenBird />
