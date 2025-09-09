@@ -13,6 +13,14 @@ export const CodePenSVGDefs = () => (
       <stop offset="0.0" stopColor="#f07560" />
       <stop offset="0.8" stopColor="#FFAB93" />
     </radialGradient>
+    <radialGradient id="moon_grad" cx="375" cy="-30" r="318.69" gradientUnits="userSpaceOnUse">
+      <stop offset="0.1" stopColor="#F0F8FF" id="moon" />
+      <stop offset="0.1" stopColor="#E6E6FA" />
+      <stop offset="0.0" stopColor="#B0C4DE" />
+      <stop offset="0.0" stopColor="#778899" />
+      <stop offset="0.0" stopColor="#2F4F4F" />
+      <stop offset="0.8" stopColor="#191970" />
+    </radialGradient>
     <linearGradient id="grad2" x1="242.5" y1="356.25" x2="750" y2="356.25" gradientUnits="userSpaceOnUse">
       <stop offset="0" stopColor="#fbbd93" />
       <stop offset="0.98" stopColor="#c46976" />
@@ -28,6 +36,10 @@ export const CodePenSVGDefs = () => (
     <linearGradient id="grad5" x1="1" y1="413.12" x2="340.58" y2="413.12" gradientUnits="userSpaceOnUse">
       <stop offset="0" stopColor="#433d6c" />
       <stop offset="1" stopColor="#392e54" />
+    </linearGradient>
+    <linearGradient id="grad5_dark" x1="1" y1="413.12" x2="340.58" y2="413.12" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stopColor="#1a1a2e" />
+      <stop offset="1" stopColor="#16213e" />
     </linearGradient>
     <linearGradient id="grad6" x1="454.13" y1="295.96" x2="454.13" y2="498.93" gradientUnits="userSpaceOnUse">
       <stop offset="0" stopColor="#2b2850" />
@@ -47,6 +59,24 @@ export const CodePenSVGDefs = () => (
     <linearGradient id="grad9" x1="508.16" y1="321.39" x2="726.97" y2="623.69" gradientUnits="userSpaceOnUse">
       <stop offset="0.01" stopColor="#120e22" />
       <stop offset="1" stopColor="#221d42" />
+    </linearGradient>
+
+    {/* Dark theme gradients */}
+    <linearGradient id="grad1_dark" x1="-154.32" y1="263.27" x2="-154.32" y2="374.3" gradientTransform="matrix(-1, 0, 0, 1.36, 231.36, -100.14)" gradientUnits="userSpaceOnUse">
+      <stop offset="0.07" stopColor="#2a1b3d" />
+      <stop offset="0.98" stopColor="#4a4a6a" />
+    </linearGradient>
+    <linearGradient id="grad2_dark" x1="242.5" y1="356.25" x2="750" y2="356.25" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stopColor="#2d2d5a" />
+      <stop offset="0.98" stopColor="#1a1a3a" />
+    </linearGradient>
+    <linearGradient id="grad3_dark" x1="467.26" y1="500" x2="467.26" y2="225.47" gradientUnits="userSpaceOnUse">
+      <stop offset="0.01" stopColor="#1e1e3e" />
+      <stop offset="1" stopColor="#0d0d1d" />
+    </linearGradient>
+    <linearGradient id="grad4_dark" x1="216.56" y1="227.64" x2="191.14" y2="600.82" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stopColor="#1a1a2e" />
+      <stop offset="0.96" stopColor="#2a2a4a" />
     </linearGradient>
 
     {/* Scene2 Gradient */}
