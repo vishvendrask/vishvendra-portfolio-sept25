@@ -625,3 +625,62 @@ nav a, nav .nav-pill a, nav .nav-pill-mobile a {
 .hover\\:text-gray-900:hover {
   color: #111827 !important;
 }
+
+/* CSS Stars and Clouds Animations */
+@keyframes twinkle {
+  0%, 100% { 
+    opacity: 0.2; 
+    transform: scale(1);
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.2);
+  }
+}
+
+@keyframes moveCloud {
+  0% { 
+    transform: translateX(-100px); 
+  }
+  100% { 
+    transform: translateX(calc(100vw + 100px)); 
+  }
+}
+
+/* Star twinkle effect */
+.css-star {
+  will-change: opacity, transform;
+}
+
+/* Cloud floating effect */
+.css-cloud {
+  will-change: transform;
+}
+
+/* Moon glow enhancement */
+.moon {
+  animation: moonGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes moonGlow {
+  0% {
+    box-shadow: 0 0 40px rgba(255, 248, 220, 0.8), inset -10px -10px 0 rgba(200, 200, 200, 0.3);
+  }
+  100% {
+    box-shadow: 0 0 60px rgba(255, 248, 220, 1), inset -10px -10px 0 rgba(200, 200, 200, 0.3);
+  }
+}
+
+/* Gradient sky subtle animation */
+.gradient-sky {
+  animation: skyShift 20s ease-in-out infinite alternate;
+}
+
+@keyframes skyShift {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(10deg);
+  }
+}
