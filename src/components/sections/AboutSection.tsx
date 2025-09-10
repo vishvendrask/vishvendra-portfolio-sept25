@@ -21,8 +21,8 @@ const contactInfo = [
 
 export default function AboutSection() {
   return (
-    <section id="about" className="py-20 portfolio-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 card-overlay">
+    <section id="about" className="py-24 min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <AnimatedSection animation="fadeIn">
           <div className="text-center mb-16">
             <motion.h2
@@ -30,29 +30,31 @@ export default function AboutSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white/90"
             >
-              About <span className="gradient-text">Me</span>
+              About <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">Me</span>
             </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-24 h-1 bg-gradient-to-r from-primary-600 to-purple-600 mx-auto rounded-full"
-            />
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed"
+            >
+              Passionate about creating amazing digital experiences
+            </motion.p>
           </div>
         </AnimatedSection>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
           {/* Content */}
           <AnimatedSection animation="slideRight">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-6">
+            <div className="space-y-6">
+              <h3 className="text-2xl md:text-3xl font-bold text-white/90 leading-tight">
                 Passionate about creating amazing digital experiences
               </h3>
               
-              <div className="space-y-4 text-gray-600 dark:text-gray-300 leading-relaxed">
+              <div className="space-y-4 text-white/70 leading-relaxed text-base">
                 <p>
                   I&apos;m a Senior Full-Stack Developer with 7+ years of experience delivering high-performance 
                   web and mobile applications for global clients including Google and DBS Bank. My expertise 
@@ -78,9 +80,9 @@ export default function AboutSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="mt-8"
+                className="mt-6"
               >
-                <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
+                <h4 className="text-lg font-semibold text-white/90 mb-4">
                   What I Do Best:
                 </h4>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
@@ -100,9 +102,9 @@ export default function AboutSection() {
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}
                       transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-center text-gray-600 dark:text-gray-300"
+                      className="flex items-center text-white/70 text-sm"
                     >
-                      <div className="w-2 h-2 bg-primary-600 rounded-full mr-3 flex-shrink-0" />
+                      <div className="w-1.5 h-1.5 bg-white/60 rounded-full mr-3 flex-shrink-0" />
                       {skill}
                     </motion.li>
                   ))}
@@ -113,8 +115,8 @@ export default function AboutSection() {
 
           {/* Contact Info */}
           <AnimatedSection animation="slideLeft" delay={0.2}>
-            <div className="bg-white dark:bg-gray-900 rounded-2xl p-8 shadow-xl">
-              <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-6">
+            <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl">
+              <h4 className="text-xl font-bold text-white/90 mb-6">
                 Get In Touch
               </h4>
               
@@ -128,22 +130,22 @@ export default function AboutSection() {
                     transition={{ duration: 0.4, delay: index * 0.1 }}
                     className="flex items-center group"
                   >
-                    <div className="w-12 h-12 bg-primary-100 dark:bg-primary-900 rounded-lg flex items-center justify-center mr-4 group-hover:bg-primary-200 dark:group-hover:bg-primary-800 transition-colors">
-                      <info.icon className="w-5 h-5 text-primary-600 dark:text-primary-400" />
+                    <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center mr-3 group-hover:bg-white/20 transition-colors">
+                      <info.icon className="w-5 h-5 text-white/80" />
                     </div>
                     <div>
-                      <p className="text-sm text-gray-500 dark:text-gray-400">
+                      <p className="text-xs text-white/60 mb-1">
                         {info.label}
                       </p>
                       {info.href ? (
                         <a
                           href={info.href}
-                          className="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                          className="text-white/90 hover:text-white transition-colors text-sm"
                         >
                           {info.value}
                         </a>
                       ) : (
-                        <p className="text-gray-900 dark:text-white">
+                        <p className="text-white/90 text-sm">
                           {info.value}
                         </p>
                       )}
@@ -158,8 +160,8 @@ export default function AboutSection() {
         {/* Accomplishments */}
         <AnimatedSection animation="slideUp" delay={0.4}>
           <div className="mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-8 text-center">
-              Key <span className="gradient-text">Accomplishments</span>
+            <h3 className="text-3xl md:text-4xl font-bold text-white/90 mb-8 text-center">
+              Key <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">Accomplishments</span>
             </h3>
             <div className="grid md:grid-cols-2 gap-6">
               {accomplishments.map((accomplishment, index) => (
@@ -169,13 +171,13 @@ export default function AboutSection() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-900 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700"
+                  className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  <div className="flex items-start">
-                    <div className="w-10 h-10 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                      <Award className="w-5 h-5 text-yellow-600 dark:text-yellow-400" />
+                  <div className="flex items-start gap-3">
+                    <div className="w-10 h-10 bg-yellow-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Award className="w-5 h-5 text-yellow-400" />
                     </div>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <p className="text-white/70 leading-relaxed text-sm">
                       {accomplishment}
                     </p>
                   </div>
@@ -187,7 +189,7 @@ export default function AboutSection() {
 
         {/* Stats */}
         <AnimatedSection animation="slideUp" delay={0.6}>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -197,17 +199,17 @@ export default function AboutSection() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="text-center"
               >
-                <div className="bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl">
                   <motion.div
                     initial={{ scale: 0 }}
                     whileInView={{ scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: 0.2 + index * 0.1, type: "spring" }}
-                    className="text-3xl md:text-4xl font-bold gradient-text mb-2"
+                    className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent mb-2"
                   >
                     {stat.value}
                   </motion.div>
-                  <p className="text-gray-600 dark:text-gray-400 font-medium">
+                  <p className="text-white/70 font-medium text-sm">
                     {stat.label}
                   </p>
                 </div>

@@ -101,7 +101,7 @@ export default function Navigation() {
               ref={navContainerRef}
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
-              className="glass-card flex items-center gap-0.5 px-2 py-2"
+              className="bg-white/15 backdrop-blur-md border border-white/30 rounded-2xl flex items-center gap-0.5 px-2 py-2 shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {navItems.map((item, index) => (
                 <motion.div
@@ -137,7 +137,7 @@ export default function Navigation() {
               <motion.button
                 ref={menuButtonRef}
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-lg text-gray-700 dark:text-gray-100 hover:bg-primary-500/10 transition-colors"
+                className="p-2 rounded-lg text-gray-700 dark:text-gray-100 bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -162,7 +162,7 @@ export default function Navigation() {
             className="md:hidden absolute top-full left-1/2 transform -translate-x-1/2 mt-2"
           >
             <motion.div
-              className="glass-card flex flex-col gap-1 px-3 py-2 min-w-max"
+              className="bg-white/15 backdrop-blur-md border border-white/30 rounded-2xl flex flex-col gap-1 px-3 py-2 min-w-max shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {navItems.map((item, index) => (
                 <motion.div

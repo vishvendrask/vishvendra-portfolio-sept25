@@ -35,13 +35,21 @@
 
 html {
   scroll-behavior: smooth;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: var(--font-inter);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
 }
+
+
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {

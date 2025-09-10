@@ -66,8 +66,8 @@ const quickLinks = [
 
 export default function QuickLinks() {
   return (
-    <section className="py-20 portfolio-section">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 card-overlay">
+    <section id="quick-links" className="py-24 min-h-screen flex items-center">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <AnimatedSection animation="fadeIn">
           <div className="text-center mb-16">
             <motion.h2
@@ -75,23 +75,16 @@ export default function QuickLinks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4"
+              className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white/90"
             >
-              Explore My <span className="gradient-text">Portfolio</span>
+              Explore My <span className="bg-gradient-to-r from-white via-blue-100 to-purple-100 bg-clip-text text-transparent">Portfolio</span>
             </motion.h2>
-            <motion.div
-              initial={{ opacity: 0, scaleX: 0 }}
-              whileInView={{ opacity: 1, scaleX: 1 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="w-24 h-1 bg-gradient-to-r from-primary-600 to-purple-600 mx-auto rounded-full mb-6"
-            />
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto"
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-lg text-white/70 max-w-2xl mx-auto leading-relaxed"
             >
               Discover my journey through different sections of my professional portfolio
             </motion.p>
@@ -106,31 +99,31 @@ export default function QuickLinks() {
               delay={index * 0.1}
             >
               <motion.div
-                whileHover={{ y: -5, scale: 1.02 }}
+                whileHover={{ y: -4, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 className="group h-full"
               >
                 <Link href={link.href} className="block h-full">
-                  <div className={`${link.bgColor} rounded-2xl p-8 h-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 group-hover:border-primary-200 dark:group-hover:border-primary-800`}>
+                  <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-lg p-6 h-full hover:bg-white/20 hover:border-white/30 transition-all duration-300 shadow-lg hover:shadow-xl">
                     {/* Icon */}
-                    <div className={`w-16 h-16 bg-gradient-to-r ${link.color} rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300`}>
-                      <link.icon className="w-8 h-8 text-white" />
+                    <div className={`w-12 h-12 bg-gradient-to-r ${link.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <link.icon className="w-6 h-6 text-white" />
                     </div>
 
                     {/* Content */}
-                    <div className="mb-6">
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors">
+                    <div className="mb-4">
+                      <h3 className="text-lg font-bold text-white/90 mb-2 group-hover:text-white transition-colors">
                         {link.title}
                       </h3>
-                      <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      <p className="text-white/70 leading-relaxed text-sm">
                         {link.description}
                       </p>
                     </div>
 
                     {/* Arrow */}
-                    <div className="flex items-center text-primary-600 dark:text-primary-400 font-medium group-hover:translate-x-2 transition-transform duration-300">
-                      <span className="mr-2">Explore</span>
-                      <ArrowRight className="w-4 h-4" />
+                    <div className="flex items-center text-white/60 group-hover:text-white font-medium group-hover:translate-x-1 transition-all duration-300 text-sm">
+                      <span className="mr-1">Explore</span>
+                      <ArrowRight className="w-3 h-3" />
                     </div>
                   </div>
                 </Link>

@@ -107,7 +107,7 @@ export default function RootLayout({
           `
         }} />
       </head>
-      <body className={`${inter.className} antialiased transition-colors duration-300`}>
+      <body className={`${inter.className} antialiased transition-colors duration-300`} style={{ background: '#000000' }}>
         <ThemeProvider defaultTheme="dark" storageKey="theme">
           {/* Exact CodePen Parallax Background */}
           <ExactCodePenParallax />
@@ -116,7 +116,7 @@ export default function RootLayout({
           <Navigation />
           
           {/* Main Content */}
-          <main className="relative pt-16" style={{ zIndex: 10 }}>
+          <main className="relative pt-16" style={{ zIndex: 10, background: 'transparent' }}>
             {children}
           </main>
         </ThemeProvider>
